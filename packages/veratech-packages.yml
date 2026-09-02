@@ -1,0 +1,111 @@
+generated: '2026-09-02'
+method: searched
+source: https://linkehr.veratech.es/getlinkehr.html
+classification: >-
+  These are END-USER DESKTOP APPLICATION BUILDS, not API client libraries. LinkEHR Studio is
+  an Eclipse-RCP archetype editor a human installs and runs; nothing here is importable into
+  a consumer's codebase. No `SDKs` pointer is emitted in apis.yml because sdk_count must not
+  be credited for a shipped IDE. Recorded here because the build currency is real, dated,
+  provider-published evidence about the product's maintenance state.
+registries_searched:
+  npm: no match (linkehr, @veratech/linkehr, veratech all 404 on registry.npmjs.org)
+  pypi: no match (linkehr, veratech both 404 on pypi.org/pypi/<pkg>/json)
+  maven_central: 0 results for "linkehr" and 0 for "veratech" on search.maven.org
+  nuget: not applicable — no .NET surface published
+  rubygems: not applicable — no Ruby surface published
+  crates_io: not applicable — no Rust surface published
+  pkg_go_dev: not applicable — no Go surface published
+  github: >-
+    No VeraTech for Health GitHub organization found. The GitHub repository search for
+    "veratech" returns only unrelated same-name companies (veratechbilisim, Veratech-tech,
+    veratechsolutions, veratechnet and others) — a NAME COLLISION, not this provider. No
+    first-party source repository was located for any LinkEHR module.
+packages:
+- name: LinkEHR Studio (Windows 64-bit)
+  registry: direct-download
+  url: https://linkehr.veratech.es/data/LinkEHR20250717.win32.win32.x86_64.zip
+  official: true
+  language: Java
+  version: 1.0.20250717
+  published: '2025-07-17'
+  version_source: >-
+    Filename date stamp, confirmed by the HTTP Last-Modified header
+    (Thu, 17 Jul 2025 08:04:57 GMT) on the download itself.
+  size_bytes: 121943133
+  http_status: 200
+  requirements: Windows 7-Windows 10; Java 1.8 64-bit or higher; Adobe Flash to visualize mindmaps
+- name: LinkEHR Studio (Windows 32-bit)
+  registry: direct-download
+  url: https://linkehr.veratech.es/data/LinkEHR20250717.win32.win32.x86.zip
+  official: true
+  language: Java
+  version: 1.0.20250717
+  published: '2025-07-17'
+  version_source: Filename date stamp; Last-Modified Thu, 17 Jul 2025 08:04:34 GMT
+  size_bytes: 121972434
+  http_status: 200
+- name: LinkEHR Studio (Linux GTK 64-bit, beta)
+  registry: direct-download
+  url: https://linkehr.veratech.es/data/LinkEHR20250717.linux.gtk.x86_64.zip
+  official: true
+  language: Java
+  version: 1.0.20250717
+  published: '2025-07-17'
+  version_source: Filename date stamp; Last-Modified Thu, 17 Jul 2025 08:04:08 GMT
+  size_bytes: 121645820
+  http_status: 200
+  status: beta
+- name: LinkEHR Studio (Linux GTK 32-bit, beta)
+  registry: direct-download
+  url: https://linkehr.veratech.es/data/LinkEHR20250717.linux.gtk.x86.zip
+  official: true
+  language: Java
+  version: 1.0.20250717
+  published: '2025-07-17'
+  version_source: Filename date stamp; Last-Modified Thu, 17 Jul 2025 08:03:43 GMT
+  size_bytes: 121527481
+  http_status: 200
+  status: beta
+- name: LinkEHR Studio (macOS, beta)
+  registry: direct-download
+  url: https://linkehr.veratech.es/data/LinkEHRStudioDemo.macosx.cocoa.x86.zip
+  official: true
+  language: Java
+  version: null
+  published: null
+  http_status: 404
+  status: broken-link
+  note: >-
+    The Get LinkEHR page still advertises a macOS build dated 2016-10-26, but the download it
+    links returns HTTP 404. Checked 2026-09-02. This is a live advertised download that does
+    not resolve — a macOS user following the published page gets nothing. Version and
+    published are null because the artifact could not be retrieved to date it, not because
+    the fields were skipped.
+supporting_downloads:
+- name: LinkEHR Studio Manual
+  url: https://linkehr.veratech.es/data/LinkEHRStudioManual.pdf
+  http_status: 200
+  published: '2020-06-30'
+  size_bytes: 4467996
+  note: >-
+    The only product documentation published, and it is PDF-only. Last-Modified 2020-06-30 —
+    it predates the shipped 2025-07-17 build by five years and every changelog entry after
+    1.0.20200528, so it does not describe the current tool.
+- name: OMOP CDM reference model (OMOP.rm)
+  url: https://linkehr.veratech.es/data/OMOP.rm
+  http_status: 200
+  published: '2026-08-25'
+  size_bytes: 8811
+  note: >-
+    The freshest artifact on the whole download surface. Pairs with changelog entry
+    1.0.20260524, which added OMOP CDM as an importable reference model.
+- name: CDISC reference model (CDISC.rm)
+  url: https://linkehr.veratech.es/data/CDISC.rm
+  http_status: 200
+  published: '2020-08-28'
+  size_bytes: 18363
+decay_signal: >-
+  Mixed. The shipped Studio build is 14 months old (2025-07-17) and the changelog names a
+  newer 1.0.20260524 that is not downloadable, but the OMOP reference model was refreshed
+  2026-08-25, so the product is being maintained even though the packaged release lags. The
+  macOS 404 and the 2020 manual are the two concrete rot points.

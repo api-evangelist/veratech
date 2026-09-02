@@ -1,0 +1,51 @@
+generated: '2026-09-02'
+method: searched
+source: https://linkehr.veratech.es/getlinkehr.html
+docs: https://veratech.es/servicios/
+plan_count: 1
+note: >-
+  Veratech publishes NO priced plan table. Exactly one commercial term is stated publicly:
+  LinkEHR Studio is a free download with, in the provider's own words, "unlimited
+  functionality to edit archetypes based on ISO 13606, openEHR and HL7 CDA standards."
+  Every other module of the LinkEHR Interoperability Platform — full LinkEHR Studio,
+  LinkEHR Model Manager and LinkEHR Integration — is sold by direct contact ("contact one of
+  our distributors to purchase a commercial version"), with no list price, no currency, no
+  billing period and no quota published anywhere on the site. The consulting side
+  (asesoria del uso del dato, oficina de interoperabilidad, innovacion aplicada) is
+  project-scoped engagement work and carries no published rate card either. plan_count is 1
+  because one real, stated term exists; it is not 0 and it is not an omission.
+currency: null
+plans:
+- name: LinkEHR Studio (free)
+  price: 0
+  currency: null
+  billing_period: null
+  included: >-
+    Archetype editing against the ISO 13606, openEHR and HL7 CDA reference models, described
+    by the provider as unlimited for that scope. Reference models are extensible by importing
+    a W3C XML Schema or an openEHR BMM file, and OMOP CDM / CDISC reference models are
+    published as downloads.
+  limits: >-
+    Not stated as a quota. The functional boundary is scope, not volume: the free module is
+    the archetype editor only. Data transformation execution, model governance and the
+    integration engine are separate paid modules.
+  overage: null
+  signup: https://linkehr.veratech.es/getlinkehr.html
+  gate: none — direct download, no account or registration required
+- name: LinkEHR Interoperability Platform (commercial modules)
+  price: null
+  currency: null
+  billing_period: null
+  included: Full LinkEHR Studio, LinkEHR Model Manager, LinkEHR Integration
+  limits: null
+  overage: null
+  signup: mailto:veratech@veratech.es
+  gate: >-
+    Sales contact / distributor. The Get LinkEHR page routes buyers to
+    veratech@veratech.es or to a distributor; no self-serve purchase path, no pricing page,
+    and no quote calculator is published.
+free_tier: true
+enterprise_only: false
+enterprise_note: >-
+  Not purely enterprise-gated — a genuinely free, unregistered download exists — but every
+  paid tier is quote-only.

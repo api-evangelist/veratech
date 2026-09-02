@@ -1,0 +1,87 @@
+generated: '2026-09-02'
+method: searched
+source: https://linkehr.veratech.es/getlinkehr.html
+scope: >-
+  Product lifecycle for the LinkEHR Interoperability Platform. There is no API lifecycle to
+  record because there is no published API — see x-coverage in apis.yml.
+versioning:
+  scheme: date-stamped
+  pattern: 1.0.YYYYMMDD
+  semver: false
+  policy_published: false
+  note: >-
+    The major.minor has been pinned at 1.0 for the entire published history (2020-2026) with a
+    build date as the patch. There is no written versioning policy, so a consumer has no rule
+    telling them whether a given build changes behavior; the Whatsnew.txt entry body is the
+    only signal, and it does not label entries as breaking.
+  current: 1.0.20260524
+  current_downloadable: 1.0.20250717
+  drift_note: >-
+    The changelog names 1.0.20260524 but the newest downloadable build is 1.0.20250717. The
+    documented version and the shippable version disagree.
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  note: >-
+    No deprecation policy, no Sunset/Deprecation header practice, no end-of-life schedule and
+    no supported-versions matrix. NO `Deprecation` pointer is emitted in apis.yml.
+  observed_deprecations:
+  - item: macOS build of LinkEHR Studio
+    evidence: https://linkehr.veratech.es/getlinkehr.html
+    detail: >-
+      Still advertised on the download page, dated 2016-10-26, with a known issue noted. The
+      linked artifact returns HTTP 404 (checked 2026-09-02). This is an undeclared retirement
+      — the product was withdrawn without the page being updated, which is exactly the failure
+      a deprecation policy prevents.
+  - item: Adobe Flash dependency
+    evidence: https://linkehr.veratech.es/getlinkehr.html
+    detail: >-
+      Every platform build still lists "Adobe Flash required to visualize Mindmaps" as a
+      requirement. Flash reached end of life on 2020-12-31 and browsers removed it; this
+      requirement can no longer be satisfied on a current system, and the page has not been
+      revised to say so.
+  - item: Java 1.8 runtime requirement
+    evidence: https://linkehr.veratech.es/getlinkehr.html
+    detail: >-
+      Builds require Java 1.8 or higher and target "Windows 7-Windows 10", both of which are
+      past their vendor support windows. Recorded as an environment-currency observation.
+status_page:
+  published: false
+  url: null
+  note: >-
+    No status page on any Veratech-controlled host and no third-party status provider
+    (statuspage.io, status.io, instatus) found. NO `StatusPage` pointer is emitted.
+sla:
+  published: false
+  note: No service-level agreement or uptime commitment is published.
+support:
+  published: true
+  url: http://help.veratech.es
+  channel: Atlassian Jira Service Management customer portal
+  detail: >-
+    help.veratech.es redirects to
+    https://veratech.atlassian.net/servicedesk/customer/user/login?destination=portals —
+    HTTP 200, reachable, but the portal itself requires a login to file or read a ticket. The
+    landing page is public; the support content behind it is not.
+  secondary:
+  - mailto:veratech@veratech.es
+  - mailto:contacto@veratech.es
+  - https://veratech.es/hablemos/
+documentation:
+  published: true
+  form: PDF only
+  url: https://linkehr.veratech.es/data/LinkEHRStudioManual.pdf
+  last_modified: '2020-06-30'
+  note: >-
+    The single product manual is a 4.5MB PDF last modified 2020-06-30 — older than the shipped
+    build and older than most of the changelog. There is no HTML documentation site, no
+    developer portal, no API reference and no getting-started guide.
+changelog:
+  published: true
+  url: https://linkehr.veratech.es/data/Whatsnew.txt
+  structured: changelog/veratech-changelog.yml
+support_lifecycle:
+  eol_schedule_published: false
+  supported_versions_published: false

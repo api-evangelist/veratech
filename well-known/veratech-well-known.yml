@@ -1,0 +1,57 @@
+generated: '2026-09-02'
+method: probed
+source: live HTTP probes of the named /.well-known/ path list on every Veratech-controlled host
+note: >-
+  Every named path returned 404 on both hosts, so NO WellKnown or SecurityTxt pointer is
+  emitted in apis.yml — this file records a verified absence, not a served surface. On
+  veratech.es the 404 is a WordPress theme error page (~93KB of HTML), not a bare 404 body;
+  it is still a 404 status and is treated as a miss. linkehr.veratech.es returns a plain
+  Apache 404. Veratech does serve a real /llms.txt at the apex (saved to llms/), but that is
+  not a /.well-known/ document and is indexed separately.
+hosts:
+- host: veratech.es
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: linkehr.veratech.es
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null

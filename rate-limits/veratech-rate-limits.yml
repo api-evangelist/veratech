@@ -1,0 +1,24 @@
+generated: '2026-09-02'
+method: searched
+source: https://linkehr.veratech.es/modules.html
+limit_count: 0
+applicable: false
+note: >-
+  Zero because Veratech publishes no public API to rate-limit, not because published limits
+  were missed. Contract discovery (2026-09-02) found no REST/OpenAPI, GraphQL, MCP or SOAP
+  surface on any Veratech-controlled host. LinkEHR Integration is a customer-deployed
+  integration engine — it runs inside the buyer's own estate against their JDBC data
+  sources, so any throughput ceiling is a property of that deployment and of the commercial
+  agreement, and there is nothing for a public rate-limit contract to describe. The public
+  web tools (openehr2fhir.veratech.es, snquery.veratech.es, nerplus.veratech.es) are
+  browser applications with no documented programmatic entry point and publish no limits.
+  NO `RateLimits` pointer is emitted in apis.yml: this file records an absence, and a
+  pointer would assert a runtime signal the provider does not serve.
+scopes: []
+headers:
+  documented: false
+  observed: []
+  note: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After headers could be observed, because there is
+    no API endpoint on which to observe them.
+exhaustion_status_code: null

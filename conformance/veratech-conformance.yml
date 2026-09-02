@@ -1,0 +1,180 @@
+generated: '2026-09-02'
+method: searched
+source: https://linkehr.veratech.es/modules.html
+additional_sources:
+- https://linkehr.veratech.es/research.html
+- https://linkehr.veratech.es/data/Whatsnew.txt
+- https://veratech.es/servicios/
+- https://openehr2fhir.veratech.es/
+reading_note: >-
+  READ THE basis FIELD BEFORE THE conforms FIELD. Veratech publishes no machine-readable API
+  contract of any kind (see x-coverage in apis.yml), so NOTHING in this file was verified the
+  way this pipeline normally verifies conformance — by reading a spec. Every entry below is
+  `basis: product-implementation`: the standard is implemented by shipped software and
+  evidenced by the provider's own product documentation and dated changelog, not by an
+  OpenAPI/AsyncAPI/WSDL document declaring it. `contract_verified` is false on every row and
+  that is the finding, not an oversight.
+domain_standard_conformance:
+  awarded: false
+  reason: >-
+    The 0.12.0 domain_standard_conformance check reads a CONTRACT declaring its market's
+    standard — a SCIM schema URN, an OData $metadata surface, an HL7v2/FHIR message type in a
+    spec, and so on. Veratech is deep in health-data standards and would be a natural
+    candidate, but it ships no contract in which such a declaration could appear, so the
+    check cannot fire. This is a reward-only check and its absence is not a penalty; it is
+    recorded here so a later pass does not re-litigate it. If Veratech ever publishes an
+    OpenAPI for the openEHR-to-FHIR transformation service, this becomes awardable
+    immediately.
+  regime: health
+standards:
+- id: openehr
+  name: openEHR
+  conforms: true
+  basis: product-implementation
+  contract_verified: false
+  role: implementer / tooling vendor / trainer
+  evidence:
+  - url: https://linkehr.veratech.es/modules.html
+    detail: >-
+      LinkEHR Studio is described as editing archetypes as ADL against the openEHR reference
+      model, and standardizing existing data into an openEHR-conformant format.
+  - url: https://linkehr.veratech.es/data/Whatsnew.txt
+    detail: >-
+      Dated maintenance against the specification itself — 1.0.20221128 "Updated openEHR RM to
+      define null_flavour as optional"; 1.0.20221031 "Updated openEHR RM archetypes to latest
+      available openEHR XSD"; OPT (operational template) import/export across several releases.
+      This is implementation-level tracking of the standard, not a marketing claim.
+  - url: https://veratech.es/2023/03/23/veratech-for-health-es-proveedor-oficial-de-formacion-en-openehr-para-el-catsalut/
+    detail: Named official openEHR training provider for CatSalut (Catalan Health Service).
+- id: iso-13606
+  name: ISO/EN 13606 (EHR communication)
+  conforms: true
+  basis: product-implementation
+  contract_verified: false
+  evidence:
+  - url: https://linkehr.veratech.es/modules.html
+    detail: >-
+      Archetype editing and data normalization to ISO 13606 named as a first-class target
+      alongside openEHR and HL7 CDA.
+  - url: https://linkehr.veratech.es/research.html
+    detail: >-
+      LinkEHR descends from the PANGEA system built on the ENV 13606 pre-standard and was
+      designed around the 13606 dual-model / archetype approach.
+- id: hl7-cda
+  name: HL7 CDA
+  conforms: true
+  basis: product-implementation
+  contract_verified: false
+  evidence:
+  - url: https://linkehr.veratech.es/modules.html
+    detail: Listed as a supported transformation target for clinical data standardization.
+- id: hl7-fhir
+  name: HL7 FHIR
+  conforms: partial
+  basis: product-implementation
+  contract_verified: false
+  evidence:
+  - url: https://openehr2fhir.veratech.es/
+    detail: >-
+      A live public web application titled "Transform to FHIR Observation" that converts
+      openEHR content into FHIR Observation resources. HTTP 200, checked 2026-09-02. It is a
+      browser UI only — no documented programmatic endpoint, no OpenAPI, no CapabilityStatement.
+  - url: https://linkehr.veratech.es/data/Whatsnew.txt
+    detail: >-
+      Repeated FHIR work across releases — openEHR2FHIR Questionnaire generation, FHIR logical
+      model generation from templates, and a dedicated FHIR profile-generation menu.
+  gap: >-
+    No FHIR CapabilityStatement and no FHIR server is published. Conformance is "partial"
+    because Veratech PRODUCES FHIR artifacts with its tooling rather than SERVING a conformant
+    FHIR endpoint. A FHIR conformance check that looks for /metadata will correctly find nothing.
+- id: snomed-ct
+  name: SNOMED CT (incl. Expression Constraint Language)
+  conforms: true
+  basis: product-implementation
+  contract_verified: false
+  evidence:
+  - url: https://linkehr.veratech.es/research.html
+    detail: >-
+      Terminology query and binding to archetypes using the SNOMED CT Expression Constraint
+      Syntax, with a named research tool at snquery.veratech.es.
+  - url: https://veratech.es/2026/04/23/cinco-anos-acercando-snomed-ct-al-sistema-nacional-de-salud/
+    detail: Five years of SNOMED CT work with the Spanish national health system.
+- id: omop-cdm
+  name: OHDSI OMOP Common Data Model
+  conforms: true
+  basis: product-implementation
+  contract_verified: false
+  evidence:
+  - url: https://linkehr.veratech.es/data/Whatsnew.txt
+    detail: >-
+      Changelog 1.0.20260524 — "Added support to OMOP CDM as Reference Model, just import it in
+      the reference model manager."
+  - url: https://linkehr.veratech.es/data/OMOP.rm
+    detail: >-
+      The OMOP reference-model file is published as a direct download, Last-Modified
+      2026-08-25 — the freshest artifact on Veratech's entire public surface.
+  - url: https://veratech.es/2023/03/23/veratech-for-health-cumple-10-anos-y-esta-acreditada-por-ehden/
+    detail: EHDEN-accredited SME for OMOP CDM mapping.
+- id: cdisc-odm
+  name: CDISC ODM
+  conforms: true
+  basis: product-implementation
+  contract_verified: false
+  evidence:
+  - url: https://linkehr.veratech.es/data/CDISC.rm
+    detail: CDISC reference-model file published as a direct download (HTTP 200, 2020-08-28).
+  - url: https://linkehr.veratech.es/research.html
+    detail: CDISC ODM listed among the reference models LinkEHR has been used with.
+- id: hl7-cimi
+  name: HL7 CIMI reference model
+  conforms: true
+  basis: product-implementation
+  contract_verified: false
+  evidence:
+  - url: https://linkehr.veratech.es/data/Whatsnew.txt
+    detail: 1.0.20200714 — "Update BMM parser to support HL7 CIMI reference model".
+- id: redcap
+  name: REDCap data dictionary
+  conforms: true
+  basis: product-implementation
+  contract_verified: false
+  evidence:
+  - url: https://linkehr.veratech.es/data/Whatsnew.txt
+    detail: >-
+      1.0.20200828 — bidirectional transformation between REDCap data dictionaries and
+      ISO 13606 / openEHR archetypes.
+cross_cutting:
+- id: oauth2
+  conforms: false
+  evidence: No OAuth surface. /.well-known/oauth-authorization-server returns 404 on every host.
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on every host.
+- id: rfc9457
+  conforms: false
+  evidence: No API and therefore no error envelope to evaluate.
+- id: rfc9116
+  name: security.txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on veratech.es and linkehr.veratech.es.
+- id: json-api
+  conforms: false
+  evidence: No JSON API surface published.
+- id: idempotency
+  conforms: na
+  evidence: No write API exists, so idempotency is not applicable rather than absent.
+certifications:
+  found: []
+  note: >-
+    No SOC 2, ISO 27001, ISO 13485, HIPAA, FedRAMP or PCI attestation is published on any
+    Veratech host, and no trust center exists. EHDEN accreditation is a research-network
+    data-partner accreditation for OMOP mapping capability, NOT an information-security
+    certification, and is deliberately not recorded as one. Because no certification was
+    found, NO `Compliance` pointer is emitted in apis.yml.
+regulatory_context:
+  jurisdiction: ES / EU
+  note: >-
+    Spanish company (VeraTech for Health S.L., Valencia) operating on EU health data. GDPR
+    applies and the company names a Data Protection Officer (Pablo Villalonga) on its team
+    page, with a published privacy policy. European Health Data Space (EHDS) is a stated
+    strategic focus in the company's own posts. None of this is an API conformance claim.

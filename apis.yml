@@ -1,17 +1,39 @@
 aid: veratech
-name: Veratech
-description: 'Veratech is a company surfaced via the API Evangelist harvest backlog (source: openehr-coalition)
-  and added to the network as a stub for full-pipeline profiling.'
+name: Veratech for Health
+description: >-
+  VeraTech for Health S.L. is a Spanish semantic-interoperability consultancy and health-data
+  tooling vendor, founded in 2010 in Valencia as a spin-off of the Biomedical Informatics group
+  (IBIME) at the Universitat Politecnica de Valencia and based at BIOHUB VLC. It helps hospitals,
+  regional health services and research networks make clinical data comprehensible and reusable,
+  combining advisory work, an interoperability office model and applied innovation (NLP, knowledge
+  graphs, machine learning) with its own LinkEHR Interoperability Platform. LinkEHR is a set of
+  desktop and server tools for authoring clinical information models as archetypes and normalizing
+  legacy clinical data into openEHR, ISO/EN 13606, HL7 CDA, HL7 FHIR, OMOP CDM and CDISC ODM.
+  Veratech is an official openEHR training provider for CatSalut, is EHDEN-accredited for OMOP CDM
+  mapping, and works on SNOMED CT adoption in the Spanish national health system. It publishes no
+  public developer program, no API and no machine-readable contract; its software is distributed
+  as downloadable builds and commercially licensed modules sold through direct contact.
 url: https://raw.githubusercontent.com/api-evangelist/veratech/refs/heads/main/apis.yml
+image: https://www.veratech.es/wp-content/uploads/2025/03/VT_15Aniversario-negativo.png
 x-type: company
 x-source: harvest:openehr-coalition
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-09-02'
 modified: '2026-09-02'
 tags:
 - Company
+- Healthcare
+- Health Data
+- Semantic Interoperability
+- openEHR
+- HL7 FHIR
+- ISO 13606
+- SNOMED CT
+- OMOP CDM
+- Clinical Data
+- Electronic Health Records
+- Consulting
+- Spain
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +42,73 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://www.veratech.es/
+  url: https://veratech.es/
+- type: Documentation
+  url: https://linkehr.veratech.es/modules.html
+- type: Manual
+  url: https://linkehr.veratech.es/data/LinkEHRStudioManual.pdf
+- type: Download
+  url: https://linkehr.veratech.es/getlinkehr.html
+- type: Support
+  url: http://help.veratech.es
+- type: Blog
+  url: https://veratech.es/noticias/
+- type: Contact
+  url: https://veratech.es/hablemos/
+- type: Careers
+  url: https://veratech.es/trabaja-con-nosotros/
+- type: TermsOfService
+  url: https://veratech.es/aviso-legal/
+- type: PrivacyPolicy
+  url: https://veratech.es/politica-privacidad/
+- type: CookiePolicy
+  url: https://veratech.es/cookies/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/veratech-for-health/
+- type: Twitter
+  url: https://twitter.com/veratech
+- type: ChangeLog
+  url: changelog/veratech-changelog.yml
+- type: Lifecycle
+  url: lifecycle/veratech-lifecycle.yml
+- type: Packages
+  url: packages/veratech-packages.yml
+- type: Plans
+  url: plans/veratech-plans-pricing.yml
+- type: Conformance
+  url: conformance/veratech-conformance.yml
+- type: LLMsTxt
+  url: llms/veratech-llms.txt
+- type: DomainSecurity
+  url: security/veratech-domain-security.yml
+x-enrichment:
+  date: '2026-09-02'
+  status: minimal
+  artifacts_added: 9
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    VeraTech for Health sells consulting plus the LinkEHR desktop/server tooling and has no
+    developer program at all — full contract discovery across every company-controlled host
+    found no OpenAPI, GraphQL, MCP, WSDL or AsyncAPI, no /.well-known/ document, no SDK in
+    any public registry and no GitHub organization; the only machine-readable file the
+    company serves is a Yoast-generated /llms.txt, and its live openEHR-to-FHIR transformer
+    at openehr2fhir.veratech.es is a browser-only app with no documented endpoint.
+  evidence:
+  - url: https://veratech.es/openapi.json
+    status: 404
+  - url: https://linkehr.veratech.es/openapi.json
+    status: 404
+  - url: https://openehr2fhir.veratech.es/openehr2fhir/v3/api-docs
+    status: 404
+  - url: https://veratech.es/.well-known/api-catalog
+    status: 404
+  - url: https://veratech.es/.well-known/agent-card.json
+    status: 404
+  - url: https://registry.npmjs.org/linkehr
+    status: 404
+  - url: https://veratech.es/llms.txt
+    status: 200
+  checked: '2026-09-02'

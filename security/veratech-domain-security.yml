@@ -1,0 +1,119 @@
+generated: '2026-09-02'
+method: probed
+source: >-
+  live DNS/TLS/HTTP probes of apis.yml hosts (probe-domain-security.py) plus hand-run
+  openssl s_client and curl HEAD probes of the additional Veratech-controlled hosts
+  discovered via certificate transparency
+hosts:
+- host: veratech.es
+  https: true
+  tls_cert_error: '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get
+    local issuer certificate (_ssl.c:1082)'
+  hsts: null
+  server: Apache
+- host: www.veratech.es
+  https: true
+  tls_cert_error: 'openssl verify return code 21: unable to verify the first certificate'
+  hsts: null
+- host: linkehr.veratech.es
+  https: true
+  tls_cert_error: 'openssl verify return code 21: unable to verify the first certificate'
+  hsts: null
+  server: Apache
+- host: docpeset.veratech.es
+  https: true
+  tls_cert_error: null
+  hsts: null
+  note: >-
+    Serves a distinct GoDaddy-issued certificate (CN=docpeset.veratech.es) with a COMPLETE
+    chain, unlike the wildcard hosts. This is the control that proves the finding below is a
+    per-host misconfiguration and not a fault in the probing client.
+domains:
+- domain: veratech.es
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
+findings:
+- id: incomplete-tls-chain
+  severity: medium
+  hosts:
+  - veratech.es
+  - www.veratech.es
+  - linkehr.veratech.es
+  detail: >-
+    All three hosts present the wildcard leaf CN=*.veratech.es issued by
+    "C=ES, O=Soluciones Corporativas IP SL, CN=Don Dominio RSA DV SSL CA 2" but do NOT send
+    that intermediate in the handshake. openssl reports verify return code 21 ("unable to
+    verify the first certificate") and Python's ssl reports CERTIFICATE_VERIFY_FAILED.
+  impact: >-
+    Browsers usually recover by fetching the missing intermediate via the AIA extension, so a
+    human visitor sees nothing wrong. Strict clients do not: this pipeline's own WebFetch
+    failed against https://veratech.es/ with "unable to verify the first certificate", and
+    Java, Python requests, curl without AIA, and most agent HTTP stacks will fail the same
+    way. For a company whose product is Java-based and whose buyers are hospital IT
+    departments running strict TLS, this is the single most consequential technical defect
+    found on the public surface.
+  verified: '2026-09-02'
+  control: >-
+    docpeset.veratech.es, on the same parent domain, validates cleanly — the client is fine,
+    the wildcard hosts' chain is not.
+  remediation: >-
+    Concatenate the "Don Dominio RSA DV SSL CA 2" intermediate into the certificate file the
+    Apache SSLCertificateFile / SSLCertificateChainFile directive serves.
+- id: no-hsts
+  severity: low
+  hosts:
+  - veratech.es
+  - linkehr.veratech.es
+  detail: No Strict-Transport-Security header is returned by any Veratech host.
+  verified: '2026-09-02'
+- id: no-dnssec
+  severity: low
+  domain: veratech.es
+  detail: DNSSEC is not enabled on veratech.es.
+  verified: '2026-09-02'
+- id: no-caa
+  severity: low
+  domain: veratech.es
+  detail: >-
+    No CAA record is published, so any public CA may issue for veratech.es and its
+    subdomains.
+  verified: '2026-09-02'
+- id: dmarc-policy-none
+  severity: low
+  domain: veratech.es
+  detail: >-
+    SPF and DMARC records both exist — better than most of this cohort — but the DMARC policy
+    is p=none, which reports on spoofing without rejecting it. Notable for a company that
+    solicits contact by email (contacto@veratech.es, veratech@veratech.es) from hospital
+    staff.
+  verified: '2026-09-02'
+- id: research-tools-on-ad-hoc-infrastructure
+  severity: informational
+  detail: >-
+    Several veratech.es subdomains redirect off the corporate estate to unmanaged endpoints
+    over PLAINTEXT HTTP — snquery.veratech.es 301s to http://biohub.nethits.com:51562/snquery,
+    nerplus.veratech.es and documentalista.veratech.es 301s to
+    http://veratechnas1.synology.me (a consumer Synology DDNS name, one on port 9999), and
+    openehr2fhir.veratech.es resolves through to http://141.147.80.147:8080/openehr2fhir/.
+    These are research and demo tools, not production services, but the redirects downgrade
+    from HTTPS to HTTP and land on hosts outside the certificate estate.
+  verified: '2026-09-02'
+subdomain_discovery:
+  method: certificate transparency (crt.sh)
+  hosts_found:
+  - confluence.veratech.es
+  - ctmap.veratech.es
+  - ctmap2.veratech.es
+  - docpeset.veratech.es
+  - documentalista.veratech.es
+  - help.veratech.es
+  - jira.veratech.es
+  - nerplus.veratech.es
+  - notify.veratech.es
+  - openehr2fhir.veratech.es
+  - snquery.veratech.es
+  - veratech.es
+  - www.veratech.es

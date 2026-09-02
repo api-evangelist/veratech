@@ -1,0 +1,102 @@
+generated: '2026-09-02'
+method: searched
+source: https://linkehr.veratech.es/data/Whatsnew.txt
+product: LinkEHR Studio
+docs: https://linkehr.veratech.es/getlinkehr.html
+scheme: date-stamped
+scheme_note: >-
+  Versions are published as 1.0.YYYYMMDD — a fixed 1.0 major/minor with a build date as the
+  patch segment. There is no semantic-versioning contract, so a consumer cannot tell a
+  breaking change from a fix by the version string alone; the entry body is the only signal.
+format: plain-text file (Whatsnew.txt), not an HTML changelog page and not a feed
+feed: null
+current_version: 1.0.20260524
+current_version_note: >-
+  The newest entry in Whatsnew.txt is 1.0.20260524, but the newest build actually offered on
+  the Get LinkEHR download page is 1.0.20250717 (Last-Modified 2025-07-17). The changelog is
+  therefore AHEAD of the shipped artifact by one release. Entries in the file are also not in
+  strict reverse-chronological order (20250717 and 20240603 precede 20260524), so the file
+  must be read in full rather than from the top.
+latest_shipped_version: 1.0.20250717
+latest_shipped_date: '2025-07-17'
+entries:
+- version: 1.0.20260524
+  date: '2026-05-24'
+  breaking: false
+  additions:
+  - Added support for OMOP CDM as a Reference Model, importable via the reference model manager
+  highlights: >-
+    Extends LinkEHR's reference-model set beyond openEHR / ISO 13606 / HL7 CDA / CIMI to the
+    OHDSI OMOP Common Data Model.
+- version: 1.0.20250717
+  date: '2025-07-17'
+  breaking: false
+  additions: []
+  fixes:
+  - Solved error for node id wrongly treated as a string during XML instance generation
+  - Minor indentation fixes on ADL serialization
+  highlights: Maintenance release; this is the build currently published for download.
+- version: 1.0.20240603
+  date: '2024-06-03'
+  breaking: false
+  additions:
+  - Alternate expansion of C_DV_QUANTITY as unit alternatives rather than DV_QUANTITY alternatives
+  - Icons added to domain types
+  - Button for single-patient XQuery generation
+  fixes:
+  - ADL export after OPT import fixed for potential missing labels in the source OPT
+  - term_mapping definition in the openEHR editor made consistent with the "any allowed" button
+  - DV_QUANTITY / C_DV_QUANTITY unit entry made consistent with the "any allowed" button
+  highlights: Mapping ergonomics for openEHR quantities plus per-patient XQuery output.
+- version: 1.0.20221128
+  date: '2022-11-28'
+  breaking: false
+  additions:
+  - Updated openEHR RM to define null_flavour as optional
+  fixes:
+  - Ontological mapping functions failing to find the archetype ontology
+  - openEHR editor producing erroneous ADL for unconstrained DV_QUANTITY / DV_PARSABLE
+  - Default DV_TIME pattern corrected to "hh:??:??"
+  highlights: openEHR reference-model and ADL-correctness fixes.
+- version: 1.0.20221031
+  date: '2022-10-31'
+  breaking: false
+  additions:
+  - OPT mapping cleanup now converts mandatory-occurrence alternatives into optional ones, enabling element cloning in mapping
+  - Updated openEHR RM archetypes to the latest available openEHR XSD
+  fixes:
+  - External XML/JSON calls in mapping now propagate exceptions to the XQuery library instead of swallowing them
+  - Template visualization and XPath now use the archetype id instead of the atcode for solved slots
+  highlights: FHIR profile generation moved under a dedicated FHIR menu.
+- version: 1.0.20220923
+  date: '2022-09-23'
+  breaking: false
+  additions:
+  - Standard-specific default mappings (archetype_id, name, archetype_details, encoding, language) applied context-sensitively
+  - Full template support in mapping — mapping paths may now contain archetype ids
+  highlights: >-
+    The largest functional entry in the recent window; makes template-level mapping viable
+    rather than archetype-only.
+- version: 1.0.20210525
+  date: '2021-05-25'
+  breaking: false
+  fixes:
+  - Linux directory-separator bug
+  - Joint archetype creation for mapping
+  - pointevent/intervalevent save of the 'data' attribute
+  - openEHR2FHIR Observation bug involving constraint bindings
+  additions:
+  - Improved FHIR logical model generation from templates
+  highlights: Cross-platform and openEHR-to-FHIR correctness.
+- version: 1.0.20200828
+  date: '2020-08-28'
+  breaking: false
+  additions:
+  - Transformation from a REDCap data dictionary to an ISO 13606 archetype
+  - Export from openEHR / ISO 13606 archetypes to a REDCap data dictionary
+  highlights: Bidirectional REDCap bridge for clinical-research data capture.
+window:
+  oldest_entry_captured: '2020-08-28'
+  note: >-
+    Whatsnew.txt carries entries back to 2020-04-22; only the recent window is structured here.
+    The full file is the authoritative record and is linked as source.
