@@ -1,0 +1,14 @@
+{
+  "repo": "veratech",
+  "feeds": [
+    {
+      "source": "http://help.veratech.es",
+      "feed_url": "http://help.veratech.es",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-09-06T19:17:18Z"
+}
