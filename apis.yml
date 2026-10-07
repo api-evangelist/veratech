@@ -55,6 +55,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Pricing
+  url: https://linkehr.veratech.es/getlinkehr.html
 - type: Website
   url: https://veratech.es/
 - type: Documentation
