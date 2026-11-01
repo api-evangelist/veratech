@@ -1,4 +1,4 @@
-# Veratech
+# Veratech for Health
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,5 +64,97 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Veratech is a company surfaced via the API Evangelist harvest backlog (source: openehr-coalition) and added to the network as a stub for full-pipeline profiling.
-- https://www.veratech.es/
+VeraTech for Health S.L. is a Spanish semantic-interoperability consultancy and health-data tooling vendor, founded in 2010 in Valencia as a spin-off of the Biomedical Informatics group (IBIME) at the Universitat Politecnica de Valencia and based at BIOHUB VLC. It helps hospitals, regional health services and research networks make clinical data comprehensible and reusable, combining advisory work, an interoperability office model and applied innovation (NLP, knowledge graphs, machine learning) with its own LinkEHR Interoperability Platform. LinkEHR is a set of desktop and server tools for authoring clinical information models as archetypes and normalizing legacy clinical data into openEHR, ISO/EN 13606, HL7 CDA, HL7 FHIR, OMOP CDM and CDISC ODM. Veratech is an official openEHR training provider for CatSalut, is EHDEN-accredited for OMOP CDM mapping, and works on SNOMED CT adoption in the Spanish national health system. It publishes no public developer program, no API and no machine-readable contract; its software is distributed as downloadable builds and commercially licensed modules sold through direct contact.
+
+**Areas:** Company · Healthcare · Health Data · Semantic Interoperability · openEHR · FHIR · ISO 13606 · SNOMED CT · OMOP CDM · Clinical Data · Electronic Health Records · Consulting
+
+## Veratech for Health on APIs.io
+
+Everything profiled for Veratech for Health is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/veratech/](https://apis.io/providers/veratech/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Veratech Domain Security](https://apis.io/security/veratech/veratech-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Veratech Plans Pricing](https://apis.io/plans/veratech/veratech-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Veratech Rate Limits](https://apis.io/rate-limits/veratech/veratech-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://veratech.es/)
+- [Documentation](https://linkehr.veratech.es/modules.html)
+- [Pricing](https://linkehr.veratech.es/getlinkehr.html)
+- [Support](http://help.veratech.es)
+- [Blog](https://veratech.es/noticias/)
+- [Terms of service](https://veratech.es/aviso-legal/)
+- [Privacy policy](https://veratech.es/politica-privacidad/)
+
+## API Evangelist rating
+
+**Kin Score 20.3** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 15.8 |
+| Developer ergonomics | 10.7 |
+| Access clarity | 42.1 |
+
+**Agent readiness 2.5** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.7** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/veratech/](https://apis.io/providers/veratech/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Veratech for Health: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/veratech/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
